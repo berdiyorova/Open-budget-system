@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1aee135-7965-409f-82b2-825467670455" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Exam.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/db_settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/login.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/logout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/register.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/appeals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/categories.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/districts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/initiatives.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/project_types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/regions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/stages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/queries/users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/check_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
