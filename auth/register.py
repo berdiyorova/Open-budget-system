@@ -1,10 +1,11 @@
+from logs.logs import log_decorator
 from queries.districts import get_districts
 from queries.regions import get_regions
 from queries.users import add_user
 from utils.common import select_option
 from utils.validation import validate_phone, validate_email, ask_gender
 
-
+@log_decorator
 def register():
     first_name = input("Enter your first name:  ")
     last_name = input("Enter your last name:  ")

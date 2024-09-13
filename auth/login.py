@@ -1,8 +1,10 @@
+from logs.logs import log_decorator
 from queries.users import get_user, update_user
 from utils.check_users import check_admin, check_user
 from utils.validation import validate_phone
 
 
+@log_decorator
 def log_in():
     phone = input("Enter your phone:  ")
     if not validate_phone(phone):

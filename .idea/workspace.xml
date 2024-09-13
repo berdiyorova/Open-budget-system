@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1aee135-7965-409f-82b2-825467670455" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/auth/login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth/logout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/appeals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/categories.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/districts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/initiatives.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/project_types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/regions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/stages.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queries/users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/check_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,23 +22,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2lxhkPoxdsezR1k9bCe6JjKrvog" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Najot Ta'lim/Lessons/month-5/Exam/config"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Najot Ta'lim/Lessons/month-5/Exam/config&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Najot Ta'lim\Lessons\month-5\Exam\config" />
