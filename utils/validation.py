@@ -1,6 +1,7 @@
 import re
 
 
+
 def validate_phone(phone):
     """
         check phone
@@ -31,37 +32,19 @@ def validate_email(email):
     return False
 
 
-def ask_gender():
-    choice = input("""
-            Gender:
-            1. Male
-            2. Female
-
-            """)
-    if choice == '1':
-        return 'male'
-
-    elif choice == '2':
-        return 'female'
-
-    else:
-        print("Invalid input. Try again.")
-        ask_gender()
-
-
-def get_phone():
+def check_phone():
     phone = input("Enter your phone number:  ")
     if not validate_phone(phone):
         print("Invalid phone number")
-        get_phone()
+        check_phone()
 
     return phone
 
 
-def get_email():
+def check_email():
     email = input("Enter your email:  ")
     if not validate_email(email):
         print("Invalid email address")
-        get_email()
+        check_email()
 
     return email

@@ -11,7 +11,7 @@ def add_user(first_name, last_name, birth_date, profession, phone, email, gender
 
 
 def get_user(phone):
-    query = "SELECT * FROM Users u WHERE u.phone = %s;"
+    query = "SELECT * FROM Users WHERE phone = %s;"
     params = (phone,)
     return execute_query(query, params, 'one')
 
@@ -19,6 +19,12 @@ def get_user(phone):
 def get_user_email(phone):
     query = "SELECT email FROM Users WHERE phone = %s;"
     params = (phone,)
+    return execute_query(query, params, 'one')
+
+
+def get_user_by_email(email):
+    query = "SELECT * FROM Users WHERE email = %s;"
+    params = (email,)
     return execute_query(query, params, 'one')
 
 

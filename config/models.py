@@ -55,23 +55,16 @@ def create_initiatives_table():
         id SERIAL PRIMARY KEY,  
         name TEXT NOT NULL,
         start_time DATE,
-        status BOOLEAN DEFAULT TRUE,
+        application_period INTERVAL,
+        moderation_period INTERVAL,
+        voting_period INTERVAL,
+        status BOOLEAN DEFAULT FALSE,
         allocated_funds NUMERIC(15, 0),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
     );  
         """
 
-def create_stages_table():
-    return """
-        CREATE TABLE IF NOT EXISTS Stages (  
-        id SERIAL PRIMARY KEY,  
-        initiative_id INT,  
-        name VARCHAR(128),
-        period INTERVAL,
-        FOREIGN KEY (initiative_id) REFERENCES initiatives(id)
-        );  
-        """
 
 def create_project_types_table():
     return """

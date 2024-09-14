@@ -43,7 +43,8 @@ def admin_menu():
         6. Logout
         """)
     if user_input == '1':
-        pass
+        create_initiative()
+        admin_menu()
     elif user_input == '2':
         pass
     elif user_input == '3':

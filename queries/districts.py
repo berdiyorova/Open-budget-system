@@ -21,5 +21,5 @@ def get_all_districts():
 
 
 def get_districts(region_id):
-    query = "SELECT * FROM Districts WHERE region_id = %s;"
+    query = "SELECT id, name FROM Districts WHERE region_id = %s;"
     return execute_query(query=query, params=(region_id,), fetch='all')

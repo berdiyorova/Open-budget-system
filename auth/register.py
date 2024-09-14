@@ -4,7 +4,7 @@ from queries.regions import get_regions
 from queries.users import add_user
 from utils.common import print_list
 from utils.send_email import verify_code_menu
-from utils.validation import get_phone, ask_gender, get_email
+from utils.common import get_phone, ask_gender, get_email
 
 
 @log_decorator
@@ -26,4 +26,3 @@ def register():
     verify_code_menu(email)
 
     add_user(first_name, last_name, birth_date, profession, phone, email, gender, region_id, district_id)
-    print("You have successfully registered.")

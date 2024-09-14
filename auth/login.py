@@ -1,12 +1,12 @@
 from logs.logs import log_decorator
 from queries.users import get_user, update_user
 from utils.check_users import check_admin, check_user
-from utils.validation import get_phone
+from utils.validation import check_phone
 
 
 @log_decorator
 def log_in():
-    phone = get_phone()
+    phone = check_phone()
 
     if check_admin(phone):
         return 'admin'

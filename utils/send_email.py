@@ -4,7 +4,7 @@ import threading
 from contextlib import contextmanager
 
 from logs.logs import log_decorator
-from utils.validation import get_email
+from utils.common import get_email
 
 
 @contextmanager
