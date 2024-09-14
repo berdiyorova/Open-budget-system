@@ -47,3 +47,21 @@ def ask_gender():
     else:
         print("Invalid input. Try again.")
         ask_gender()
+
+
+def get_phone():
+    phone = input("Enter your phone number:  ")
+    if not validate_phone(phone):
+        print("Invalid phone number")
+        get_phone()
+
+    return phone
+
+
+def get_email():
+    email = input("Enter your email:  ")
+    if not validate_email(email):
+        print("Invalid email address")
+        get_email()
+
+    return email

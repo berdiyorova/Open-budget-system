@@ -6,7 +6,7 @@ def create_appeal_type():
         DO $$  
             BEGIN  
                 IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'appeal_status') THEN  
-                    CREATE TYPE appeal_status AS ENUM ('active', 'accepted', 'rejected', 'winner');  
+                    CREATE TYPE appeal_status AS ENUM ('in_process', 'accepted', 'rejected', 'winner');  
                 END IF;  
             END $$;
         """
@@ -100,9 +100,10 @@ def create_appeals_table():
         region_id INT,
         district_id INT,
         title VARCHAR(128),
-        status APPEAL_STATUS DEFAULT 'active',
+        status APPEAL_STATUS DEFAULT 'in_process',
         funds_offered NUMERIC(12, 2),
         funds_approved NUMERIC(12, 2),
+        votes INT DEFAULT 0,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES Users(uuid),

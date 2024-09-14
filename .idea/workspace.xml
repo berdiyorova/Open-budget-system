@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1aee135-7965-409f-82b2-825467670455" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/admin_&amp;_user_functions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_&amp;_user_functions/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_&amp;_user_functions/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/districts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/regions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/send_email.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queries/appeals.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries/appeals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queries/districts.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries/districts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queries/regions.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries/regions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queries/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries/users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/check_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/check_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,16 +48,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Najot Ta'lim/Lessons/month-5/Exam/config&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Najot Ta'lim/Lessons/month-5/Exam/utils"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Najot Ta'lim\Lessons\month-5\Exam\utils" />
       <recent name="D:\Najot Ta'lim\Lessons\month-5\Exam\config" />
     </key>
   </component>
@@ -85,5 +103,16 @@
       <updated>1726127777499</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

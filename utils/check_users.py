@@ -1,18 +1,16 @@
-from queries.users import get_user
+from queries.users import get_user_email
+from utils.send_email import verify_code
 
 admin_phone = "+998717020108"
-admin_password = "Admin0101"
+admin_email = "baxromovna6973@gmail.com"
 
 
 def check_admin(phone):
     if phone == admin_phone:
-        password = input("Ender admin password:  ")
-        if password == admin_password:
-            return True
-    return False
+        return verify_code(admin_email)
 
 
 def check_user(phone):
-    if get_user(phone):
-        return True
-    return False
+    email = get_user_email(phone)
+    if email:
+        return verify_code(email[0])

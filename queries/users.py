@@ -16,6 +16,12 @@ def get_user(phone):
     return execute_query(query, params, 'one')
 
 
+def get_user_email(phone):
+    query = "SELECT email FROM Users WHERE phone = %s;"
+    params = (phone,)
+    return execute_query(query, params, 'one')
+
+
 def get_user_by_id(uuid):
     query = "SELECT * FROM Users u WHERE u.uuid = %s;"
     params = (uuid,)
@@ -27,7 +33,7 @@ def get_all_users():
     return execute_query(query=query, fetch='all')
 
 
-def update_user(id, field, new_value):
-    query = f"UPDATE Users SET {field} = %s WHERE id = %s);"
-    params = (new_value, id)
+def update_user(uuid, field, new_value):
+    query = f"UPDATE Users SET {field} = %s WHERE uuid = %s;"
+    params = (new_value, uuid)
     execute_query(query=query, params=params)

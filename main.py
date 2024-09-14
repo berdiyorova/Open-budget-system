@@ -2,6 +2,8 @@ from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
 from config.models import create_all_tables
+from queries.districts import insert_districts
+from queries.regions import insert_regions
 
 
 def auth_menu():
@@ -9,6 +11,8 @@ def auth_menu():
         1. Register
         2. Login
         3. Exit
+        
+        Enter your choice:  
         """)
 
     if user_input == '1':
@@ -16,8 +20,8 @@ def auth_menu():
         auth_menu()
 
     elif user_input == '2':
-        if log_in():
-            user = log_in()
+        user = log_in()
+        if user:
             if user == 'admin':
                 admin_menu()
             else:
@@ -55,7 +59,7 @@ def admin_menu():
         admin_menu()
 
 
-def user_menu(id):
+def user_menu(uuid):
     user_input = input("""
         1. Send an appeal
         2. All appeals
@@ -64,6 +68,7 @@ def user_menu(id):
         5. My accepted appeals
         6. My rejected appeals
         7. Vote
+        8. All initiatives
         8. Logout
         """)
     if user_input == '1':
@@ -81,13 +86,19 @@ def user_menu(id):
     elif user_input == '7':
         pass
     elif user_input == '8':
-        logout(id)
+        pass
+    elif user_input == '9':
+        logout(uuid)
         auth_menu()
     else:
         print("Invalid input! Try again.")
-        user_menu(id)
+        user_menu(uuid)
 
 
 
 if __name__ == '__main__':
     create_all_tables()
+    insert_regions()
+    insert_districts()
+
+    auth_menu()
