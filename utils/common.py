@@ -72,3 +72,7 @@ def ask_gender():
     else:
         print("Invalid input. Try again.")
         ask_gender()
+
+
+def check_funds(allocated, offered):
+    return allocated > offered

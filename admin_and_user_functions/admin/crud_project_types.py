@@ -19,7 +19,7 @@ def show_all_project_types():
 
 def update_project_type():
     if show_all_project_types():
-        id = input("Enter project type id you want to update:  ")
+        id = int(input("Enter project type id you want to update:  "))
         new_name = input("Change the project type name:  ")
         update_pr_type(id=id, field='name', new_value=new_name)
         print("Successfully updated the project type name.")
@@ -27,6 +27,6 @@ def update_project_type():
 
 def delete_project_type():
     if show_all_project_types():
-        id = input("Enter project type id you want to delete:  ")
+        id = int(input("Enter project type id you want to delete:  "))
         delete_pr_type(id=id)
         print("Successfully deleted the project type.")

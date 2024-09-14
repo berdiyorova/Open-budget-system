@@ -89,6 +89,7 @@ def create_appeals_table():
         CREATE TABLE IF NOT EXISTS Appeals (
         id SERIAL PRIMARY KEY,
         user_id UUID,
+        initiative_id INT,
         category_id INT,
         region_id INT,
         district_id INT,
@@ -100,6 +101,7 @@ def create_appeals_table():
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES Users(uuid),
+        FOREIGN KEY (initiative_id) REFERENCES Initiatives(id),
         FOREIGN KEY (category_id) REFERENCES Categories(id),
         FOREIGN KEY (region_id) REFERENCES Regions(id),
         FOREIGN KEY (district_id) REFERENCES Districts(id)

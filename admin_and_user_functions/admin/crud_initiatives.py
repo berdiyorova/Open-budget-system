@@ -77,7 +77,6 @@ def start_initiative():
         return None
 
     else:
-
         id = int(input("\nEnter initiative id you want to start:  "))
 
         date = datetime.datetime.now()

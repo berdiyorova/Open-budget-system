@@ -4,6 +4,7 @@ from admin_and_user_functions.admin.crud_initiatives import create_initiative, u
     start_initiative, show_unstarted_initiatives, show_started_initiative, show_ended_initiatives, show_all_initiatives
 from admin_and_user_functions.admin.crud_project_types import create_project_type, update_project_type, \
     delete_project_type, show_all_project_types
+from admin_and_user_functions.user import send_appeal, show_all_appeals, show_my_all_appeals
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -222,16 +223,24 @@ def user_menu(uuid):
         4. My new appeals
         5. My accepted appeals
         6. My rejected appeals
-        7. Vote
-        8. All initiatives
-        8. Logout
+        7. My winner appeals
+        8. Vote
+        9. All initiatives
+        10. Show initiative in process
+        11. Logout
         """)
     if user_input == '1':
-        pass
+        send_appeal(uuid)
+        user_menu(uuid)
+
     elif user_input == '2':
-        pass
+        show_all_appeals()
+        user_menu(uuid)
+
     elif user_input == '3':
-        pass
+        show_my_all_appeals(uuid)
+        user_menu(uuid)
+
     elif user_input == '4':
         pass
     elif user_input == '5':

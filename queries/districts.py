@@ -15,7 +15,7 @@ def insert_districts():
             execute_query(query=query, params=(region_id, name))
 
 
-def get_all_districts():
+def get_all_districts() :
     query = "SELECT * FROM Districts;"
     return execute_query(query=query, fetch='all')
 
