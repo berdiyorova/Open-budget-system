@@ -1,7 +1,7 @@
 import datetime
 
 from queries.initiatives import add_initiative, get_unstarted_initiatives, update_initiative, get_started_initiative, \
-    get_initiative_by_id, get_ended_initiatives
+    get_initiative_by_id, get_ended_initiatives, get_all_initiatives
 from utils.common import print_list
 
 
@@ -112,3 +112,11 @@ def show_ended_initiatives():
         print_list(initiatives)
     else:
         print("Ended initiatives not found.")
+
+
+def show_all_initiatives():
+    initiatives = get_all_initiatives()
+    if initiatives:
+        print_list(initiatives)
+    else:
+        print("Initiatives not found.")

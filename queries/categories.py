@@ -21,6 +21,12 @@ def get_all_categories():
     return execute_query(query=query, fetch='all')
 
 
+def get_categories_by_project_type(project_type_id):
+    query = "SELECT * FROM Categories WHERE project_type_id = %s;"
+    params = (project_type_id,)
+    return execute_query(query=query, params=params, fetch='all')
+
+
 def delete_category(id):
     query = f"DELETE FROM Categories WHERE id = %s;"
     params = (id,)
