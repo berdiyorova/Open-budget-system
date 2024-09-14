@@ -1,4 +1,7 @@
-from queries.initiatives import add_initiative, get_unstarted_initiatives, update_initiative
+import datetime
+
+from queries.initiatives import add_initiative, get_unstarted_initiatives, update_initiative, get_started_initiative, \
+    get_initiative_by_id
 from utils.common import print_list
 
 
@@ -61,3 +64,29 @@ def choose_field():
     else:
         print("Invalid input. Try again.")
         choose_field()
+
+
+def start_initiative():
+    initiatives_1 = get_unstarted_initiatives()
+    initiatives_2 = get_started_initiative()
+
+    if not initiatives_1:
+        print("Unstarted initiatives not found.")
+        return None
+
+    elif initiatives_2:
+        print("Sorry, there is an unfinished initiative.")
+        return None
+
+    else:
+        print_list(initiatives_1)
+
+        id = int(input("\nEnter initiative id you want to start:  "))
+
+        date = datetime.datetime.now()
+        update_initiative(id=id, field='start_time', new_value=date)
+        update_initiative(id=id, field='status', new_value=True)
+
+        initiative = get_initiative_by_id(id)
+
+        print(f"{initiative[1]} initiative has started.")

@@ -1,4 +1,4 @@
-from admin_and_user_functions.admin import create_initiative, update_unstarted_initiative
+from admin_and_user_functions.admin import create_initiative, update_unstarted_initiative, start_initiative
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -54,16 +54,48 @@ def admin_menu():
         admin_menu()
 
     elif user_input == '3':
-        pass
+        start_initiative()
+        admin_menu()
+
     elif user_input == '4':
         pass
+
     elif user_input == '5':
-        pass
+        admin_statistics()
+
     elif user_input == '6':
         auth_menu()
     else:
         print("Invalid input! Try again.")
         admin_menu()
+
+
+def admin_statistics():
+    user_input = """
+        1. Show unstarted initiatives
+        2. Show initiative in the process
+        3. Show ended initiatives
+        4. Projects with the most votes
+        5. Projects with the most votes in an initiative
+        """
+    if user_input == '1':
+        pass
+
+    elif user_input == '2':
+        pass
+
+    elif user_input == '3':
+        pass
+
+    elif user_input == '4':
+        pass
+
+    elif user_input == '5':
+        pass
+
+    else:
+        print("Invalid input! Try again.")
+        admin_statistics()
 
 
 def user_menu(uuid):

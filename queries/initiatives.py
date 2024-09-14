@@ -34,3 +34,9 @@ def get_started_initiative():
 def get_ended_initiatives():
     query = "SELECT * FROM Initiatives WHERE status = FALSE;"
     return execute_query(query=query, fetch='all')
+
+
+def get_initiative_by_id(id):
+    query = "SELECT * FROM Initiatives WHERE id = %s;"
+    params = (id,)
+    return execute_query(query=query, params=params, fetch='one')
