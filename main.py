@@ -1,4 +1,5 @@
-from admin_and_user_functions.admin import create_initiative, update_unstarted_initiative, start_initiative
+from admin_and_user_functions.admin import create_initiative, update_unstarted_initiative, start_initiative, \
+    show_unstarted_initiatives, show_started_initiative, show_ended_initiatives
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -65,27 +66,34 @@ def admin_menu():
 
     elif user_input == '6':
         auth_menu()
+
     else:
         print("Invalid input! Try again.")
         admin_menu()
 
 
 def admin_statistics():
-    user_input = """
+    user_input = input("""
         1. Show unstarted initiatives
         2. Show initiative in the process
         3. Show ended initiatives
         4. Projects with the most votes
         5. Projects with the most votes in an initiative
-        """
+        
+        Enter your choice:  
+        """)
     if user_input == '1':
-        pass
+        if not show_unstarted_initiatives():
+            print("Unstarted initiatives not found.")
+        admin_statistics()
 
     elif user_input == '2':
-        pass
+        show_started_initiative()
+        admin_statistics()
 
     elif user_input == '3':
-        pass
+        show_ended_initiatives()
+        admin_statistics()
 
     elif user_input == '4':
         pass

@@ -1,7 +1,7 @@
 import datetime
 
 from queries.initiatives import add_initiative, get_unstarted_initiatives, update_initiative, get_started_initiative, \
-    get_initiative_by_id
+    get_initiative_by_id, get_ended_initiatives
 from utils.common import print_list
 
 
@@ -22,9 +22,7 @@ def create_initiative():
 
 
 def update_unstarted_initiative():
-    initiatives = get_unstarted_initiatives()
-    if initiatives:
-        print_list(initiatives)
+    if show_unstarted_initiatives():
 
         id = int(input("\nEnter initiative id you want to update:  "))
         field = choose_field()
@@ -67,19 +65,18 @@ def choose_field():
 
 
 def start_initiative():
-    initiatives_1 = get_unstarted_initiatives()
-    initiatives_2 = get_started_initiative()
+    initiatives = get_unstarted_initiatives()
+    initiative = get_started_initiative()
 
-    if not initiatives_1:
+    if not initiatives:
         print("Unstarted initiatives not found.")
         return None
 
-    elif initiatives_2:
+    elif initiative:
         print("Sorry, there is an unfinished initiative.")
         return None
 
     else:
-        print_list(initiatives_1)
 
         id = int(input("\nEnter initiative id you want to start:  "))
 
@@ -90,3 +87,28 @@ def start_initiative():
         initiative = get_initiative_by_id(id)
 
         print(f"{initiative[1]} initiative has started.")
+
+
+def show_unstarted_initiatives():
+    initiatives = get_unstarted_initiatives()
+    if initiatives:
+        print_list(initiatives)
+        return True
+
+    return None
+
+
+def show_started_initiative():
+    initiative = get_started_initiative()
+    if initiative:
+        print(initiative)
+    else:
+        print("There is no initiative in the process.")
+
+
+def show_ended_initiatives():
+    initiatives = get_ended_initiatives()
+    if initiatives:
+        print_list(initiatives)
+    else:
+        print("Ended initiatives not found.")

@@ -32,7 +32,7 @@ def get_started_initiative():
 
 
 def get_ended_initiatives():
-    query = "SELECT * FROM Initiatives WHERE status = FALSE;"
+    query = "SELECT * FROM Initiatives WHERE status = FALSE AND start_time IS NOT NULL;"
     return execute_query(query=query, fetch='all')
 
 
