@@ -17,7 +17,7 @@ def update_pr_type(id, field, new_value):
 
 
 def get_all_project_types():
-    query = "SELECT name FROM project_types;"
+    query = "SELECT * FROM project_types;"
     return execute_query(query=query, fetch='all')
 
 
