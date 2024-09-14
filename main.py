@@ -1,3 +1,4 @@
+from admin_and_user_functions.admin import create_initiative, update_unstarted_initiative
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -41,12 +42,17 @@ def admin_menu():
         4. Moderation
         5. Show statistics
         6. Logout
+        
+        Enter your choice:  
         """)
     if user_input == '1':
         create_initiative()
         admin_menu()
+
     elif user_input == '2':
-        pass
+        update_unstarted_initiative()  # admin can update only unstarted initiatives
+        admin_menu()
+
     elif user_input == '3':
         pass
     elif user_input == '4':
@@ -102,4 +108,5 @@ if __name__ == '__main__':
     insert_regions()
     insert_districts()
 
-    auth_menu()
+    # auth_menu()
+    admin_menu()

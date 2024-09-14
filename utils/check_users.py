@@ -2,7 +2,7 @@ from queries.users import get_user_email
 from utils.send_email import verify_code
 
 admin_phone = "+998717020108"
-admin_email = "baxromovna6973@gmail.com"
+admin_email = "baxromovna6974@gmail.com"
 
 
 def check_admin(phone):

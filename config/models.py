@@ -122,9 +122,6 @@ def create_all_tables():
     query = create_initiatives_table()
     execute_query(query)
 
-    query = create_stages_table()
-    execute_query(query)
-
     query = create_project_types_table()
     execute_query(query)
 
