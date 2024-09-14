@@ -1,5 +1,5 @@
-from admin_and_user_functions.admin import create_initiative, update_unstarted_initiative, start_initiative, \
-    show_unstarted_initiatives, show_started_initiative, show_ended_initiatives
+from admin_and_user_functions.admin.crud_initiatives import create_initiative, update_unstarted_initiative, \
+    start_initiative, show_unstarted_initiatives, show_started_initiative, show_ended_initiatives
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
