@@ -101,8 +101,10 @@ def show_started_initiative():
     initiative = get_started_initiative()
     if initiative:
         print(initiative)
+        return True
     else:
         print("There is no initiative in the process.")
+        return None
 
 
 def show_ended_initiatives():

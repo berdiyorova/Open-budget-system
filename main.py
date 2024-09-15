@@ -274,5 +274,5 @@ if __name__ == '__main__':
     insert_regions()
     insert_districts()
 
-    # auth_menu()
-    admin_menu()
+    auth_menu()
+    # admin_menu()
