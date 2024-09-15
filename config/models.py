@@ -108,6 +108,20 @@ def create_appeals_table():
         )
         """
 
+def create_votes_table():
+    return """
+        CREATE TABLE IF NOT EXISTS Votes (
+        initiative_id INT,
+        appeal_id INT,
+        user_id UUID,
+        FOREIGN KEY (initiative_id) REFERENCES Initiatives(id),
+        FOREIGN KEY (appeal_id) REFERENCES Appeal(id),
+        FOREIGN KEY (user_id) REFERENCES Users(uuid),
+        PRIMARY KEY (initial_id, appeal_id, user_id)
+        );
+        """
+
+
 def create_all_tables():
     query = create_appeal_type()
     execute_query(query)

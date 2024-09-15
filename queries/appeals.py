@@ -43,3 +43,9 @@ def get_my_winner_appeals(uuid):
     query = "SELECT * FROM Appeals WHERE user_id = %s AND status = %s;"
     params = (uuid, 'winner')
     return execute_query(query=query, params=params, fetch='all')
+
+
+def update_appeals(id, field, new_value):
+    query = f"UPDATE Initiatives SET {field} = %s WHERE id = %s;"
+    params = (new_value, id)
+    execute_query(query=query, params=params)

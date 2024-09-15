@@ -86,4 +86,4 @@ def show_my_winner_appeals(uuid):
 
 
 def vote_on_the_project(uuid):
-    pass
+
