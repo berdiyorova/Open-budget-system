@@ -4,7 +4,8 @@ from admin_and_user_functions.admin.crud_initiatives import create_initiative, u
     start_initiative, show_unstarted_initiatives, show_started_initiative, show_ended_initiatives, show_all_initiatives
 from admin_and_user_functions.admin.crud_project_types import create_project_type, update_project_type, \
     delete_project_type, show_all_project_types
-from admin_and_user_functions.user import send_appeal, show_all_appeals, show_my_all_appeals
+from admin_and_user_functions.user import send_appeal, show_all_appeals, show_my_all_appeals, show_my_new_appeals, \
+    show_my_accepted_appeals, show_my_rejected_appeals, show_my_winner_appeals
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -242,13 +243,21 @@ def user_menu(uuid):
         user_menu(uuid)
 
     elif user_input == '4':
-        pass
+        show_my_new_appeals(uuid)
+        user_menu(uuid)
+
     elif user_input == '5':
-        pass
+        show_my_accepted_appeals(uuid)
+        user_menu(uuid)
+
     elif user_input == '6':
-        pass
+        show_my_rejected_appeals(uuid)
+        user_menu(uuid)
+
     elif user_input == '7':
-        pass
+        show_my_winner_appeals(uuid)
+        user_menu(uuid)
+
     elif user_input == '8':
         pass
     elif user_input == '9':

@@ -1,6 +1,6 @@
 from admin_and_user_functions.admin.crud_categories import show_categories_by_project_type
 from queries.appeals import add_appeal, get_all_appeals, get_my_all_appeals, get_my_accepted_appeals, \
-    get_my_rejected_appeals, get_my_winner_appeals
+    get_my_rejected_appeals, get_my_winner_appeals, get_my_new_appeals
 from queries.districts import get_districts
 from queries.initiatives import get_started_initiative
 from queries.regions import get_regions
@@ -59,6 +59,14 @@ def show_my_all_appeals(uuid):
         print_list(appeals)
     else:
         print("There is no your appeal.")
+
+
+def show_my_new_appeals(uuid):
+    appeals = get_my_new_appeals(uuid)
+    if appeals:
+        print_list(appeals)
+    else:
+        print("There is no your new appeal.")
 
 
 def show_my_accepted_appeals(uuid):
