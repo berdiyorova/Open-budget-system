@@ -21,6 +21,12 @@ def get_all_appeals_in_initiative(initiative_id):
     return execute_query(query=query, params=params, fetch='all')
 
 
+def get_new_appeals():
+    query = "SELECT * FROM Appeals WHERE status = %s;"
+    params = ('in_process',)
+    return execute_query(query=query, params=params, fetch='all')
+
+
 def get_my_all_appeals(uuid):
     query = "SELECT * FROM Appeals WHERE user_id = %s;"
     params = (uuid,)

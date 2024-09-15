@@ -21,15 +21,9 @@ def count_votes_on_initiatives(initiative_id):
     execute_query(query=query, params=params, fetch="all")
 
 
-def count_votes_on_appeals(appeal_id):
+def count_votes_on_appeal(appeal_id):
     query = """SELECT COUNT(*) FROM Votes WHERE appeal_id = %s;"""
     params = (appeal_id,)
-    execute_query(query=query, params=params, fetch="all")
-
-
-def count_my_all_votes(user_id):
-    query = """SELECT COUNT(*) FROM Votes WHERE user_id = %s;"""
-    params = (user_id,)
     execute_query(query=query, params=params, fetch="all")
 
 
@@ -69,7 +63,7 @@ def get_appeals_with_the_most_votes():
     execute_query(query=query, fetch='all')
 
 
-def get_appeals_with_the_most_votes_within_initiative(initiative_id):
+def get_appeals_with_the_most_votes_on_initiative(initiative_id):
     query = """
         SELECT   
             i.id,   

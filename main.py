@@ -4,8 +4,12 @@ from admin_and_user_functions.admin.crud_initiatives import create_initiative, u
     start_initiative, show_unstarted_initiatives, show_started_initiative, show_ended_initiatives, show_all_initiatives
 from admin_and_user_functions.admin.crud_project_types import create_project_type, update_project_type, \
     delete_project_type, show_all_project_types
+from admin_and_user_functions.show_statistics import show_count_all_votes, show_count_votes_on_initiatives, \
+    show_count_votes_on_appeal, show_users_voted_on_appeal, show_appeals_with_the_most_votes, \
+    show_appeals_with_the_most_votes_on_initiative
 from admin_and_user_functions.user import send_appeal, show_all_appeals, show_my_all_appeals, show_my_new_appeals, \
-    show_my_accepted_appeals, show_my_rejected_appeals, show_my_winner_appeals
+    show_my_accepted_appeals, show_my_rejected_appeals, show_my_winner_appeals, vote_on_the_project, \
+    show_initiative_in_process, show_my_voted_appeals
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -65,7 +69,7 @@ def admin_menu():
         pass
 
     elif user_input == '5':
-        admin_statistics()
+        statistics_menu()
 
     elif user_input == '6':
         auth_menu()
@@ -182,38 +186,64 @@ def category_menu():
         category_menu()
 
 
-def admin_statistics():
+def statistics_menu():
     user_input = input("""
         1. Show unstarted initiatives
         2. Show initiative in the process
         3. Show ended initiatives
-        4. Projects with the most votes
-        5. Projects with the most votes in an initiative
+        4. Count all votes
+        5. Count votes on initiatives
+        6. Count votes on appeals
+        7. Show users voted on appeal
+        8. Show appeals with the most votes
+        9. Show appeals with the most votes on the initiative
+        10. Go to back
         
         Enter your choice:  
         """)
     if user_input == '1':
         if not show_unstarted_initiatives():
             print("Unstarted initiatives not found.")
-        admin_statistics()
+        statistics_menu()
 
     elif user_input == '2':
         show_started_initiative()
-        admin_statistics()
+        statistics_menu()
 
     elif user_input == '3':
         show_ended_initiatives()
-        admin_statistics()
+        statistics_menu()
 
     elif user_input == '4':
-        pass
+        show_count_all_votes()
+        statistics_menu()
 
     elif user_input == '5':
-        pass
+        show_count_votes_on_initiatives()
+        statistics_menu()
+
+    elif user_input == '6':
+        show_count_votes_on_appeal()
+        statistics_menu()
+
+    elif user_input == '7':
+        show_users_voted_on_appeal()
+        statistics_menu()
+
+    elif user_input == '8':
+        show_appeals_with_the_most_votes()
+        statistics_menu()
+
+    elif user_input == '9':
+        show_appeals_with_the_most_votes_on_initiative()
+        statistics_menu()
+
+    elif user_input == '10':
+        admin_menu()
 
     else:
         print("Invalid input! Try again.")
-        admin_statistics()
+        statistics_menu()
 
 
 def user_menu(uuid):
@@ -227,7 +257,7 @@ def user_menu(uuid):
         7. My winner appeals
         8. Vote
         9. All initiatives
-        10. Show initiative in process
+        10. Show my voted appeals
         11. Logout
         """)
     if user_input == '1':
@@ -259,8 +289,18 @@ def user_menu(uuid):
         user_menu(uuid)
 
     elif user_input == '8':
-        pass
+        vote_on_the_project(uuid)
+        user_menu(uuid)
+
     elif user_input == '9':
+        show_all_initiatives()
+        user_menu(uuid)
+
+    elif user_input == '10':
+        show_my_voted_appeals(uuid)
+        user_menu(uuid)
+
+    elif user_input == '11':
         logout(uuid)
         auth_menu()
     else:

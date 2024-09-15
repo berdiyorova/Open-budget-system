@@ -28,7 +28,7 @@ def get_unstarted_initiatives():
 
 def get_started_initiative():
     query = "SELECT * FROM Initiatives WHERE status = TRUE;"
-    return execute_query(query=query, fetch='all')
+    return execute_query(query=query, fetch='one')
 
 
 def get_ended_initiatives():
