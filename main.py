@@ -4,6 +4,8 @@ from admin_and_user_functions.admin.crud_initiatives import create_initiative, u
     start_initiative, show_unstarted_initiatives, show_started_initiative, show_ended_initiatives, show_all_initiatives
 from admin_and_user_functions.admin.crud_project_types import create_project_type, update_project_type, \
     delete_project_type, show_all_project_types
+from admin_and_user_functions.admin.get_winners import get_winners
+from admin_and_user_functions.admin.moderation import moderation
 from admin_and_user_functions.show_statistics import show_count_all_votes, show_count_votes_on_initiatives, \
     show_count_votes_on_appeal, show_users_voted_on_appeal, show_appeals_with_the_most_votes, \
     show_appeals_with_the_most_votes_on_initiative
@@ -16,6 +18,7 @@ from auth.register import register
 from config.models import create_all_tables
 from queries.districts import insert_districts
 from queries.regions import insert_regions
+from utils.common import print_list
 
 
 def auth_menu():
@@ -51,8 +54,9 @@ def admin_menu():
             2. Project types
             3. Categories
             4. Moderation
-            5. Show statistics
-            6. Logout
+            5. Get winners
+            6. Show statistics
+            7. Logout
 
             Enter your choice:  
             """)
@@ -66,12 +70,17 @@ def admin_menu():
         category_menu()
 
     elif user_input == '4':
-        pass
+        moderation()
+        admin_menu()
 
     elif user_input == '5':
-        statistics_menu()
+        print_list(get_winners())
+        admin_menu()
 
     elif user_input == '6':
+        statistics_menu()
+
+    elif user_input == '7':
         auth_menu()
 
     else:

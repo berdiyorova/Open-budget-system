@@ -58,7 +58,7 @@ def get_appeals_with_the_most_votes():
         LEFT JOIN Votes v ON a.id = v.appeal_id  
         GROUP BY a.id  
         ORDER BY total_votes DESC  
-        LIMIT 10;
+        LIMIT 50;
         """
     execute_query(query=query, fetch='all')
 
@@ -76,7 +76,7 @@ def get_appeals_with_the_most_votes_on_initiative(initiative_id):
         WHERE i.id = %s
         GROUP BY i.id, a.id  
         ORDER BY total_votes DESC  
-        LIMIT 10;
+        LIMIT 50;
         """
     params = (initiative_id,)
     execute_query(query=query, params=params, fetch='all')
