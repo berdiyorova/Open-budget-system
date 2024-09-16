@@ -8,15 +8,17 @@ from queries.initiatives import get_started_initiative
 from queries.regions import get_regions
 from queries.votes import add_vote, get_my_voted_appeals
 from utils.common import print_list, check_funds
+from utils.send_email import verify_code
+from utils.validation import check_email
 
 
 def send_appeal(uuid):
     initiative = get_started_initiative()
     if initiative:
         start_application_period = initiative[2]
-        now = datetime.datetime.now()
+        current_date = datetime.date.today()
         end_application_period = initiative[2] + initiative[3]  # start_date + application_period
-        if start_application_period < now < end_application_period:
+        if start_application_period < current_date < end_application_period:
             initiative_id = initiative[0]
 
             if show_categories_by_project_type():
@@ -111,30 +113,31 @@ def show_initiative_in_process():
 
 
 
-def vote_on_the_project(uuid):
+def vote_on_the_project():
     initiative = get_started_initiative()
     if initiative:
         start_voting_period = initiative[2] + initiative[3] + initiative[4]  # start_date + application_period + moderation_period
-        now = datetime.datetime.now()
+        current_date = datetime.date.today()
         end_voting_period = start_voting_period + initiative[5]  # start_voting_period + voting_period
-        if start_voting_period < now < end_voting_period:
+        if start_voting_period < current_date < end_voting_period:
             initiative_id = initiative[0]
             appeals = get_all_appeals_in_initiative(initiative_id)
             if appeals:
                 print_list(appeals)
                 appeal_id = int(input("Enter the appeal id you want to vote"))
-                add_vote(initiative_id=initiative_id, appeal_id=appeal_id, user_id=uuid)
+                email = check_email()
+                if verify_code(email):
+                    add_vote(initiative_id=initiative_id, appeal_id=appeal_id, email=email)
             else:
                 print("There is no appeal")
-        elif now < start_voting_period:
-            print("Voting period has not started.")
         else:
-            print("Voting period has ended.")
+            print("Not currently in voting process.")
 
 
-def show_my_voted_appeals(uuid):
-    appeals = get_my_voted_appeals(uuid)
+def show_my_voted_appeals():
+    email = check_email()
+    appeals = get_my_voted_appeals(email)
     if appeals:
         print_list(appeals)
     else:
-        print("You have not voted.")
+        print("You did not vote.")

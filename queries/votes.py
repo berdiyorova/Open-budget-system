@@ -1,54 +1,53 @@
 from config.db_settings import execute_query
 
 
-def add_vote(initiative_id, appeal_id, user_id):
+def add_vote(initiative_id, appeal_id, email) -> None:
     query = """INSERT INTO Votes 
-                (initiative_id , appeal_id, user_id)
+                (initiative_id , appeal_id, email)
                 VALUES (%s, %s, %s);
                 """
-    params = (initiative_id, appeal_id, user_id)
+    params = (initiative_id, appeal_id, email)
     execute_query(query=query, params=params)
 
 
 def count_all_votes():
     query = """SELECT COUNT(*) FROM Votes;"""
-    execute_query(query=query, fetch="one")
+    return execute_query(query=query, fetch="one")
 
 
 def count_votes_on_initiatives(initiative_id):
     query = """SELECT COUNT(*) FROM Votes WHERE initiative_id = %s;"""
     params = (initiative_id,)
-    execute_query(query=query, params=params, fetch="all")
+    return execute_query(query=query, params=params, fetch="all")
 
 
 def count_votes_on_appeal(appeal_id):
     query = """SELECT COUNT(*) FROM Votes WHERE appeal_id = %s;"""
     params = (appeal_id,)
-    execute_query(query=query, params=params, fetch="all")
+    return execute_query(query=query, params=params, fetch="all")
 
 
-def get_my_voted_appeals(uuid):
+def get_my_voted_appeals(email):
     query = """
         SELECT a.title, i.name 
         FROM Appeals a  
         JOIN Votes v ON a.id = v.appeal_id  
         JOIN Initiatives i ON a.initiative_id = i.id  
-        WHERE v.user_id = %s;  
+        WHERE v.email = %s;  
         """
-    params = (uuid,)
-    execute_query(query=query, params=params, fetch="all")
+    params = (email,)
+    return execute_query(query=query, params=params, fetch="all")
 
 
 def get_users_voted_on_appeal(appeal_id):
     query = """
-        SELECT DISTINCT u.first_name, u.last_name, u.phone 
-        FROM Users u  
-        JOIN Votes v ON u.uuid = v.user_id  
+        SELECT DISTINCT v.email 
+        FROM Votes v  
         JOIN Appeals a ON v.appeal_id = a.id  
         WHERE a.id = %s;  
         """
     params = (appeal_id,)
-    execute_query(query=query, params=params, fetch="all")
+    return execute_query(query=query, params=params, fetch="all")
 
 
 def get_appeals_with_the_most_votes():
@@ -60,7 +59,7 @@ def get_appeals_with_the_most_votes():
         ORDER BY total_votes DESC  
         LIMIT 50;
         """
-    execute_query(query=query, fetch='all')
+    return execute_query(query=query, fetch='all')
 
 
 def get_appeals_with_the_most_votes_on_initiative(initiative_id):
@@ -79,4 +78,4 @@ def get_appeals_with_the_most_votes_on_initiative(initiative_id):
         LIMIT 50;
         """
     params = (initiative_id,)
-    execute_query(query=query, params=params, fetch='all')
+    return execute_query(query=query, params=params, fetch='all')

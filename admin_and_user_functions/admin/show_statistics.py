@@ -19,13 +19,13 @@ def show_count_votes_on_initiatives():
 
 
 def show_count_votes_on_appeal():
-    show_all_initiatives()
-    initiative_id = int(input("Enter initiative id:  "))
-    appeals = get_all_appeals_in_initiative(initiative_id)
-    if appeals:
-        print_list(appeals)
-        appeal_id = int(input("Enter appeal id:  "))
-        print(count_votes_on_appeal(appeal_id))
+    if show_all_initiatives():
+        initiative_id = int(input("Enter initiative id:  "))
+        appeals = get_all_appeals_in_initiative(initiative_id)
+        if appeals:
+            print_list(appeals)
+            appeal_id = int(input("Enter appeal id:  "))
+            print(count_votes_on_appeal(appeal_id))
 
 
 def show_users_voted_on_appeal():

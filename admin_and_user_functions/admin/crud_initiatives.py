@@ -77,9 +77,10 @@ def start_initiative():
         return None
 
     else:
+        print_list(initiatives)
         id = int(input("\nEnter initiative id you want to start:  "))
 
-        date = datetime.datetime.now()
+        date = datetime.date.today()
         update_initiative(id=id, field='start_time', new_value=date)
         update_initiative(id=id, field='status', new_value=True)
 
@@ -119,5 +120,7 @@ def show_all_initiatives():
     initiatives = get_all_initiatives()
     if initiatives:
         print_list(initiatives)
+        return True
     else:
         print("Initiatives not found.")
+        return False

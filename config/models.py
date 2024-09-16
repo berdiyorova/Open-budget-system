@@ -88,11 +88,11 @@ def create_appeals_table():
     return """
         CREATE TABLE IF NOT EXISTS Appeals (
         id SERIAL PRIMARY KEY,
-        user_id UUID,
-        initiative_id INT,
-        category_id INT,
-        region_id INT,
-        district_id INT,
+        user_id UUID NOT NULL,
+        initiative_id INT NOT NULL,
+        category_id INT NOT NULL,
+        region_id INT NOT NULL,
+        district_id INT NOT NULL,
         title VARCHAR(128),
         status APPEAL_STATUS DEFAULT 'in_process',
         funds_offered NUMERIC(12, 2),
@@ -113,11 +113,10 @@ def create_votes_table():
         CREATE TABLE IF NOT EXISTS Votes (
         initiative_id INT,
         appeal_id INT,
-        user_id UUID,
+        email VARCHAR(32) NOT NULL,
         FOREIGN KEY (initiative_id) REFERENCES Initiatives(id),
-        FOREIGN KEY (appeal_id) REFERENCES Appeal(id),
-        FOREIGN KEY (user_id) REFERENCES Users(uuid),
-        PRIMARY KEY (initial_id, appeal_id, user_id)
+        FOREIGN KEY (appeal_id) REFERENCES Appeals(id),
+        PRIMARY KEY (initiative_id, appeal_id, email)
         );
         """
 
@@ -145,4 +144,7 @@ def create_all_tables():
     execute_query(query)
 
     query = create_appeals_table()
+    execute_query(query)
+
+    query = create_votes_table()
     execute_query(query)

@@ -7,10 +7,10 @@ from queries.initiatives import get_started_initiative
 def moderation():
     initiative = get_started_initiative()
     start_moderation_period = initiative[2] + initiative[3]  # start_date + application_period
-    now = datetime.datetime.now()
+    current_date = datetime.date.today()
     end_moderation_period = start_moderation_period + initiative[4]  # start_moderation_period + moderation_period
 
-    if start_moderation_period < now < end_moderation_period:
+    if start_moderation_period < current_date < end_moderation_period:
         appeals = get_new_appeals()
         for appeal in appeals:
             while True:
@@ -31,4 +31,4 @@ def moderation():
                     print("Invalid input. Try again.")
 
     else:
-        print("Now is not moderation period.")
+        print("Not currently in moderation process.")

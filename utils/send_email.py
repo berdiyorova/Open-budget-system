@@ -1,7 +1,9 @@
 import random
 import smtplib
 import threading
+import os
 from contextlib import contextmanager
+from dotenv import load_dotenv
 
 from logs.logs import log_decorator
 from utils.common import get_email
@@ -17,36 +19,46 @@ def smtp_connection():
 
 
 def verify_code_menu(email):
-    if not verify_code(email):
-        choice = input("""
-        1. Send code again
-        2. Change email
+    while True:
+        if verify_code(email):
+            print("Verification successful!")
+            break  # Exit the loop on success
+        choice = input("""  
+        1. Send code again  
+        2. Change email  
 
-        Choice an option:  
+        Choose an option (1 or 2):  
         """)
-
         if choice == "1":
-            verify_code_menu(email)
-        if choice == "2":
+            continue  # Retry verification
+        elif choice == "2":
             email = get_email()
-            verify_code_menu(email)
+            continue
+        else:
+            print("Invalid choice. Please select 1 or 2.")
 
 
 def verify_code(email):
     code = random.randint(10000, 99999)
     send_code(email, code)
-    code_2 = int(input("Enter code from email:  "))
-    if code == code_2:
-        return True
-    return False
+
+    while True:
+        try:
+            code_2 = int(input("Enter the code from the email: "))
+            break  # Valid input, exit loop
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+    return code == code_2
 
 
 @log_decorator
 def send_code(email, code):
-    subject = "Verify The Code:"
-    t = threading.Thread(target=send_mail, args=(email, subject, code))
+    subject = "Open budget"
+    message = f"Your verification code is  {code}."
+    t = threading.Thread(target=send_mail, args=(email, subject, message))
     t.start()
-    print(f"Email is sent to user")
+    print("Email is sent to the user...")
 
 
 def send_mail(to_user, subject, message):
@@ -58,8 +70,9 @@ def send_mail(to_user, subject, message):
         print(f"Failed to send email to {to_user}: {e}")
 
 
+load_dotenv()
 
-smtp_server = 'smtp.gmail.com'
-smtp_port = 587
-smtp_sender = 'rano.baxromovna@gmail.com'
-smtp_password = 'iwnd wsls azqg bphk'
+smtp_server = os.getenv('SMTP_SERVER')
+smtp_port = int(os.getenv('SMTP_PORT'))
+smtp_sender = os.getenv('SMTP_SENDER')
+smtp_password = os.getenv('SMTP_PASSWORD')

@@ -1,6 +1,6 @@
 import datetime
 
-from queries.initiatives import get_started_initiative
+from queries.initiatives import get_started_initiative, update_initiative
 from queries.votes import get_appeals_with_the_most_votes_on_initiative
 
 
@@ -9,10 +9,14 @@ def get_winners():
 
     #  start_date + application_period + moderation_period + voting_period
     end_time = initiative[2] + initiative[3] + initiative[4] + initiative[5]
-    if datetime.datetime.now() >= end_time:
+    current_date = datetime.date.today()
+    winners = []
+
+    if current_date >= end_time:
+        update_initiative(initiative[0], 'status', False)
+
         appeals = get_appeals_with_the_most_votes_on_initiative(initiative[0])
         total_amount = 0
-        winners = []
 
         for appeal in appeals:
             if total_amount < initiative[7]:  # compare total amount and allocated funds for initiative
@@ -21,4 +25,4 @@ def get_winners():
             else:
                 break
 
-        return winners
+    return winners

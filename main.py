@@ -6,12 +6,12 @@ from admin_and_user_functions.admin.crud_project_types import create_project_typ
     delete_project_type, show_all_project_types
 from admin_and_user_functions.admin.get_winners import get_winners
 from admin_and_user_functions.admin.moderation import moderation
-from admin_and_user_functions.show_statistics import show_count_all_votes, show_count_votes_on_initiatives, \
+from admin_and_user_functions.admin.show_statistics import show_count_all_votes, show_count_votes_on_initiatives, \
     show_count_votes_on_appeal, show_users_voted_on_appeal, show_appeals_with_the_most_votes, \
     show_appeals_with_the_most_votes_on_initiative
 from admin_and_user_functions.user import send_appeal, show_all_appeals, show_my_all_appeals, show_my_new_appeals, \
     show_my_accepted_appeals, show_my_rejected_appeals, show_my_winner_appeals, vote_on_the_project, \
-    show_initiative_in_process, show_my_voted_appeals
+    show_my_voted_appeals
 from auth.login import log_in
 from auth.logout import logout
 from auth.register import register
@@ -74,7 +74,10 @@ def admin_menu():
         admin_menu()
 
     elif user_input == '5':
-        print_list(get_winners())
+        if get_winners():
+            print_list(get_winners())
+        else:
+            print("Winners not found.")
         admin_menu()
 
     elif user_input == '6':
@@ -298,7 +301,7 @@ def user_menu(uuid):
         user_menu(uuid)
 
     elif user_input == '8':
-        vote_on_the_project(uuid)
+        vote_on_the_project()
         user_menu(uuid)
 
     elif user_input == '9':
@@ -306,7 +309,7 @@ def user_menu(uuid):
         user_menu(uuid)
 
     elif user_input == '10':
-        show_my_voted_appeals(uuid)
+        show_my_voted_appeals()
         user_menu(uuid)
 
     elif user_input == '11':
@@ -323,5 +326,5 @@ if __name__ == '__main__':
     insert_regions()
     insert_districts()
 
-    auth_menu()
-    # admin_menu()
+    # auth_menu()
+    admin_menu()
