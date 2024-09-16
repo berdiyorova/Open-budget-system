@@ -2,7 +2,8 @@ import datetime
 
 from admin_and_user_functions.admin.crud_categories import show_categories_by_project_type
 from queries.appeals import add_appeal, get_all_appeals, get_my_all_appeals, get_my_accepted_appeals, \
-    get_my_rejected_appeals, get_my_winner_appeals, get_my_new_appeals, get_all_appeals_in_initiative
+    get_my_rejected_appeals, get_my_winner_appeals, get_my_new_appeals, get_all_appeals_in_initiative, update_appeals, \
+    get_appeal_by_id
 from queries.districts import get_districts
 from queries.initiatives import get_started_initiative
 from queries.regions import get_regions
@@ -128,6 +129,9 @@ def vote_on_the_project():
                 email = check_email()
                 if verify_code(email):
                     add_vote(initiative_id=initiative_id, appeal_id=appeal_id, email=email)
+                    appeal = get_appeal_by_id(appeal_id)
+                    votes_count = appeal[10] + 1
+                    update_appeals(id=appeal_id, field='votes', new_value=votes_count)
             else:
                 print("There is no appeal")
         else:

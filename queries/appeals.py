@@ -61,3 +61,9 @@ def update_appeals(id, field, new_value):
     query = f"UPDATE Initiatives SET {field} = %s WHERE id = %s;"
     params = (new_value, id)
     execute_query(query=query, params=params)
+
+
+def get_appeal_by_id(id):
+    query = "SELECT * FROM Appeals WHERE id = %s;"
+    params = (id,)
+    return execute_query(query=query, params=params, fetch='one')
